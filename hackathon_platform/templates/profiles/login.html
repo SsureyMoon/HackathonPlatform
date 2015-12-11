@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <!-- /.nav-wrapper -->
+
+    <div class="container">
+        <div class="login-form">
+            <ul class="nav nav-tabs">
+                {% if action == "signup" %}
+                    <li><a href="#login" data-toggle="tab" >Log In</a></li>
+                    <li class="active"><a href="#signup" data-toggle="tab">Sign Up</a></li>
+                {% else %}
+                    <li class="active"><a href="#login" data-toggle="tab" >Log In</a></li>
+                    <li><a href="#signup" data-toggle="tab">Sign Up</a></li>
+                {% endif %}
+            </ul>
+
+            <div class="tab-content">
+                {% if action != "signup" %}
+                    <div id="login" class="tab-pane active">
+                {% else %}
+                    <div id="login" class="tab-pane">
+                {% endif %}
+                    <h3>Login</h3>
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li id="message_{{ forloop.counter }}"
+                                {% if message.tags %} class="{{ message.tags }}"
+                                {% endif %}>
+                                {{ message }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <form name="form" action="{% url 'profiles:login' %}" method="POST" role="form">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" class="form-control" required />
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" required />
+                        </fieldset>
+
+                        <button type="submit" class="btn btn-primary">Login</button>
+
+                    </form>
+                </div>
+
+                {% if action == "signup" %}
+                    <div id="signup" class="tab-pane active">
+                {% else %}
+                    <div id="signup" class="tab-pane">
+                {% endif %}
+                    <h3>Sign Up</h3>
+                    {% if error %}
+                        <div class="alert alert-danger">error</div>
+                    {% endif %}
+                    <form name="form" action="{% url 'profiles:signup' %}"  method="POST" role="form">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" class="form-control" required />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" required />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password1" id="password1" class="form-control" required />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="confirm">Confirm Password</label>
+                            <input type="password" name="password2" id="password2" class="form-control" required />
+                        </fieldset>
+
+                        <button type="submit" class="btn btn-primary">Sign up</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <!-- /.nav-wrapper -->
+
+    <div class="container">
+        <div class='main-content'>
+            <h2>Projects</h2>
+            <h2>Not implemented yet</h2>
+       </div>
+    </div>
+{% endblock %}

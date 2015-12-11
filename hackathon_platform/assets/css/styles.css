@@ -1,0 +1,75 @@
+/*! project specific CSS goes here. */
+.login-form {
+  padding: 30px;
+  margin: 120px auto;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -webkit-box-shadow: #222222 4px 7px 7px;
+  box-shadow: #222222 4px 7px 7px;
+}
+
+@media (min-width: 768px) {
+  .login-form {
+    max-width: 600px;
+    width: 50%;
+  }
+}
+
+.main-content {
+  margin: 120px auto 10px;
+}
+
+.content-box {
+    background-color: #eeeeee;
+    padding:10px;
+}
+
+.content-box:hover {
+    border: 1px solid #aaaaaa;
+}
+
+.item.slide {
+    width: 100%;
+    height: auto;
+}
+
+.item.slide img {
+  margin: auto;
+  min-width: 100%;
+}
+
+.carousel-caption h1 {
+    text-shadow: -2px 0 gray, 0 2px gray, 2px 0 gray, 0 -2px gray;
+}
+
+.number-circle {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+
+    font: 16px Arial, sans-serif;
+    font-weight: bold;
+}
+
+.picture {
+    width: 75%;
+    height: auto;
+}
+
+.text-box {
+    white-space: pre;
+}

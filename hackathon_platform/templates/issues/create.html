@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <!-- /.nav-wrapper -->
+
+    <div class="container">
+        <div class='main-content'>
+            <h2>Elect an issue!</h2>
+            <form name="form" id="matter-form" action="{% url 'issues:create' %}" method="POST" enctype="multipart/form-data" role="form">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" class="form-control" required />
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="snippet">Summary(100 characters)</label>
+                    <input type="text" name="snippet" id="snippet" class="form-control" required />
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="picture">Picture</label>
+                    <input type="file" name="picture" id="picture" class="form-control" />
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="description">Description</label>
+                    <textarea rows="10" name="description" form="matter-form" id="description" class="form-control" required></textarea>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="country">Country</label>
+                    <select type="textarea" name="country" id="country" class="form-control" required>
+                        {% for choice in form.country.field.choices %}
+                            <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </fieldset>
+
+                <button type="submit" class="btn btn-primary">Create</button>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

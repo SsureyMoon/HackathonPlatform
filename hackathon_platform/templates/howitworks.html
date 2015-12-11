@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="full-size" id="wrapper">
+        <div class="container">
+            <div class="main-content">
+                <h1>Hack the world. Be borderless.</h1>
+                <div>
+                    <img src="{% static 'img/how_it_work.png' %}" alt='how it works'/>
+                </div>
+                <table class='table' style="margin-top:15px;">
+                    <tbody>
+                        <tr>
+                            <td><div class="number-circle">1</div></td>
+                            <td>Local entrepreneurs or engineers upload some issues they have confronted while operating business.</td>
+                        </tr>
+                        <tr>
+                            <td><div class="number-circle">2</div></td>
+                            <td>After checking the issues, we contact some sponsor, and throw a hackathon to solve the issues. </td>
+                        </tr>
+                        <tr>
+                            <td><div class="number-circle">3</div></td>
+                            <td>Hackers join the hackathon and submit projects with technical skills or creative ideas.</td>
+                        </tr>
+                        <tr>
+                            <td><div class="number-circle">4</div></td>
+                            <td>During the hackathon, hackers can communicates with the issue raisers (local entrepreneurs or engineers) to get a better understanding, and to find more practical solution.</td>
+                        </tr>
+                        <tr>
+                            <td><div class="number-circle">5</div></td>
+                            <td>The issue raisers vote on the project which fits to their situations.</td>
+                        </tr>
+                        <tr>
+                            <td><div class="number-circle">6</div></td>
+                            <td>Anyone may vote on projects which they like, and share them thorough SNS.
+This action gathers much attention from the public.<br>
+People can also invest some money to the issue. The money invested will be used to provide airline tickets to winners.</td>
+                        </tr>
+                        <tr>
+                            <td><div class="number-circle">7</div></td>
+                            <td>The winners get prizes, they will get a chance to work with the local entrepreneurs for a couple of months by flying to the countries.</td>
+                        </tr>
+                        <tr>
+                            <td><div class="number-circle">8</div></td>
+                            <td>People who invest money get periodic reports, and even small benefit.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- /.section -->
+
+            <footer>
+                <div class="copy-rights clearfix">
+                    <div class="pull-left">
+                        All Copy Rights Reserved For YourCompany 201*
+                    </div>
+                    <div class="pull-right">
+                        by <a href="http://scoopthemes.com">Scoop Themes</a>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- /.container -->
+    </div>
+{% endblock content %}

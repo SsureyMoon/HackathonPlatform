@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="full-size" id="wrapper">
+
+        <div id="mainCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#mainCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#mainCarousel" data-slide-to="1"></li>
+                <li data-target="#mainCarousel" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item slide active">
+                  <img src="{% static 'img/slide1.jpg' %}" alt="silde1">
+                  <div class="carousel-caption">
+                    <h1>World has lots of issues, needs help.</h1>
+                  </div>
+                </div>
+
+                <div class="item slide">
+                  <img src="{% static 'img/slide2.jpg' %}" alt="silde2">
+                  <div class="carousel-caption">
+                    <h1>Software and Hardware can solve any problems.</h1>
+                  </div>
+                </div>
+
+                <div class="item slide">
+                  <img src="{% static 'img/slide3.jpg' %}" alt="slide3">
+                  <div class="carousel-caption">
+                    <h1>Hack the world. Be borderless.</h1>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#mainCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#mainCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+        </div>
+
+
+        <div class="container">
+
+            <div class="section">
+                <div class="row">
+                    <h2>Featured Issues</h2>
+                    {% if issues %}
+                        {% for issue in issues %}
+                            <div class="col-md-3">
+                                <a href="{% url 'issues:detail' issue.pk %}" class="thumbnail">
+                                    <img src="{% static 'img/slide3.jpg' %}" alt="">
+                                </a>
+                                <h3>{{ issue.title }}</h3>
+                                <p>{{ issue.snippet }}</p>
+                                <p>{{ issue.country }}</p>
+                                <a href="{% url 'issues:detail' issue.pk %}" class="btn btn-primary btn-sm">Read More</a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Issue One</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Issue Two</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Issue Three</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Issue Four</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <h2>Featured Hackathons</h2>
+                    {% if hackathons %}
+                        {% for hackathon in hackathons %}
+                            <div class="col-md-3">
+                                <a href="{% url 'hackathons:detail' hackathon.pk %}" class="thumbnail">
+                                    <img src="{% static 'img/slide3.jpg' %}" alt="">
+                                </a>
+                                <h3>{{ hackathon.title }}</h3>
+                                <p>{{ hackathon.snippet }}</p>
+                                <a href="{% url 'hackathons:detail' hackathon.pk %}" class="btn btn-primary btn-sm">Read More</a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Hackathon One</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Hackathon Two</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Hackathon Three</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Hackathon Four</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <h2>Featured Projects</h2>
+                    {% if projects %}
+                        {% for project in projects %}
+                            <div class="col-md-3">
+                                <a href="{% url 'projects:detail' project.pk %}" class="thumbnail">
+                                    <img src="{{ project.picture.url }}" alt="">
+                                </a>
+                                <h3>{{ hackathon.title }}</h3>
+                                <p>{{ hackathon.snippet }}</p>
+                                <a href="{% url 'projects:detail' project.pk %}" class="btn btn-primary btn-sm">Read More</a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Project One</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Project Two</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Project Three</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="http://placehold.it/300x200" alt="">
+                            </a>
+                            <h3>Project Four</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- /.section -->
+
+            <hr>
+
+            <div class="section">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>Font Awesome Is There</h1>
+                        <p>Font Awesome is included and from MaxCDN <span class="fa fa-heart"></span></p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="http://placehold.it/450x200" class="img-responsive" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- /.section -->
+
+            <hr>
+
+            <footer>
+                <div class="copy-rights clearfix">
+                    <div class="pull-left">
+                        All Copy Rights Reserved For YourCompany 201*
+                    </div>
+                    <div class="pull-right">
+                        by <a href="http://scoopthemes.com">Scoop Themes</a>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- /.container -->
+
+
+    </div>
+{% endblock content %}

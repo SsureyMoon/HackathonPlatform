@@ -1,0 +1,67 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+body {
+  font-family: 'Open Sans', Tahoma, Arial;
+}
+
+.nav-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.section {
+  padding: 30px 0;
+}
+
+.navbar {
+  margin-top: 20px;
+}
+
+footer {
+  padding-bottom: 20px;
+}
+
+.full-size {
+    width: 100%;
+    margin-left: none;
+    margin-right: none;
+    padding-left: none;
+    padding-right: none;
+}
+
+.navbar-inverse {
+
+    background-color: rgb(251, 89, 89);
+    border-color: rgb(251, 89, 89);
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus{
+    color: #fff;
+    background-color: #880404;
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus{
+    color: #fff;
+    background-color: #880404;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: rgb(255, 233, 187);
+}
+
+.navbar-inverse .navbar-brand {
+    color: rgb(255, 233, 187);
+}
+.navbar {
+    margin-top: 0;
+}
+
+.navbar-inverse .navbar-toggle.collapsed {
+    border-color: #B91010;
+}
+
+.navbar-inverse .navbar-toggle.collapsed:hover {
+    background-color: #B91010;
+}
+
+/*# sourceMappingURL=main.css.map */

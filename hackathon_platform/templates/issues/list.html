@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <!-- /.nav-wrapper -->
+
+    <div class="container">
+        <div class='main-content'>
+            <h2>Issues</h2>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <form action="{% url 'issues:list' %}" method="GET">
+                        <div class="input-group">
+                            <input class="form-control" type="text" name="q" placeholder="search for a title of an issue"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-md-1" style="margin-top:10px;">
+                    <p>OR</p>
+                </div>
+                <div class="col-md-5">
+                    <a href="{% url 'issues:create' %}">
+                        <button type="button" class="btn btn-info">
+                          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Elect an issue
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div class="section">
+                <div class="row">
+                    {% for issue in object_list %}
+                        <div class="col-md-3 content-box">
+                            <a href="{% url 'issues:detail' issue.pk %}" class="thumbnail">
+                                <img src="{% static 'img/slide3.jpg' %}" alt="">
+                            </a>
+                            <h3>{{ issue.title }}</h3>
+                            <p>{{ issue.snippet }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+       </div>
+    </div>
+{% endblock %}

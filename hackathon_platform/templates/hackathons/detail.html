@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <!-- /.nav-wrapper -->
+
+    <div class="container">
+        <div class='main-content'>
+            <h2>{{ hackathon.title }}</h2>
+            <h4>Summary:</h4><p>{{ hackathon.snippet }}</p>
+
+            <img class="picture" src="{% static 'img/slide3.jpg' %}" />
+
+            <h4>Description:</h4><p class="text-box">{{ hackathon.description }}</p>
+            <h4>Due date:</h4><p>{{ hackathon.due_date_time }}</p>
+            <h4>This hackathon is hosted to solve the issue {{ issue.title }}</h4>
+        </div>
+        <a href="{% url 'issues:detail' issue.pk %}">
+            <button type="button" class="btn btn-warning btn-lg">
+              <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Check the issue
+            </button>
+        </a>
+        <a href="#">
+            <button type="button" class="btn btn-primary btn-lg">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Submit a project
+            </button>
+        </a>
+    </div>
+
+{% endblock %}
